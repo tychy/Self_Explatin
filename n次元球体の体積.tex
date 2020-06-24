@@ -1,0 +1,54 @@
+\documentclass{jsarticle}
+\usepackage{amssymb,amsmath}
+\usepackage{newtxtt}
+\usepackage[utf8]{inputenc}
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\newcommand{\dder}[2][]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\half}{\frac{1}{2}}
+\date{\today}
+\author{山田龍}
+\title{n次元級の体積とガンマ関数についての計算}
+\begin{document}
+\maketitle
+\section{n次元球体の体積}
+n次元空間を考える。
+今、$V_n,S_n$をそれぞれ体積、表面積とする。
+一般に、$V_n = c_n r^n$と書いて、
+\begin{equation}
+    \dder[V_n]{r} = S_n = n c_n r^{n-1}
+\end{equation}
+であるとこを認める。
+ここで、
+\begin{align}
+    I_n &= \int \exp(-(x_1^2 + x_2^2 + x_3^2 + \cdots))dx_1 dx_2 \cdots dx_n\\
+        &= \pi^{\frac{n}{2}}
+\end{align}
+$r$を使って計算しなおせば、
+\begin{align}
+    I_n &= \int S_n \exp(-r^2)dr\\
+        &= n c_n \int r^{n-1} \exp(-r^2)dr\\
+        &= \half n c_n \int t^{\frac{n}{2}-1} \exp(-t)dt\\
+        &= \half n c_n \Gamma(\frac{n}{2})\\
+        &=  c_n \Gamma(\frac{n}{2} + 1)
+\end{align}
+したがって、
+\begin{equation}
+    c_n = \frac{\pi^{\frac{n}{2}}}
+{\Gamma(\frac{n}{2} + 1)}\end{equation}
+
+\section{$\Gamma(\half)$と$\Gamma(\frac{3}{2})$}
+ガンマ関数の定義は、
+\begin{equation}
+    \Gamma(n) = \int x^{n-1} \exp(-x)dx
+\end{equation}
+\begin{align}
+    \Gamma(\half) &= \int x^{-\half} \exp(-x)dx\\
+                  &= \int u^{-1} \exp(-u^2) 2u du\\
+                  &= \sqrt{\pi}
+\end{align}
+\begin{align}
+    \Gamma(\frac{3}{2}) = \half \Gamma(\half) = \half \sqrt{\pi}
+\end{align}
+
+\end{document}
+

@@ -1,0 +1,67 @@
+\documentclass{jsarticle}
+\usepackage{amssymb,amsmath}
+\usepackage{newtxtt}
+\usepackage[utf8]{inputenc}
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\newcommand{\dder}[2][]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\half}{\frac{1}{2}}
+\date{\today}
+\author{山田龍}
+\title{エントロピーの定義}
+\begin{document}
+\maketitle
+\section{最大仕事とヘルムホルツの自由エネルギー}
+等温準静過程において、その系が外界にする仕事の最大値を$W_{max}$と書く。
+ここで熱力学第二法則：
+\begin{equation}
+    W_{cyc} \leqq 0
+\end{equation}
+$(T, X_0) \rightarrow (T, X_1) \rightarrow (T, X_0)$において、前半の過程での仕事を$-W$、
+後半での仕事を等温準静過程として$W_{iq}$と書く。
+熱力学第二法則より、
+\begin{align}
+    W - W_{iq} \leqq 0\\
+    W \leqq W_{iq}
+\end{align}
+よって、$W_{iq}$を、最大仕事と呼び$W_{max}$と書くことにする。
+いま、ある基準点における示量変数を$X_0$と書き、ヘルムホルツの自由エネルギーを
+\begin{equation}
+    F[T; X_1] = W_{max}((T, X_1) \rightarrow (T, X_0))
+\end{equation}
+と定義する。
+\subsection{ヘルムホルツの自由エネルギーの性質}
+\begin{equation}
+    W_{max}(T,V \rightarrow V + \triangle V) = F \triangle l = p \triangle V
+\end{equation}
+ここで圧力は、
+\begin{align}
+    p &= \frac{W_{max}(T,V \rightarrow V + \triangle V)}{\triangle V} \\
+      &= \frac{F[T, V] - F[T, V + \triangle V]}{\triangle V}\\ 
+      &= - \pder[F]{V}
+\end{align}
+を得る。逆に、pをdvについて積分すればFを得る。
+\section{熱}
+等温過程において、$W_{max}$は断熱操作のときと違い内部エネルギーの変化のみでは記述されない。
+\begin{equation}
+    W_{max} = U((T, X_0) - (T, X_1)) + Q
+\end{equation}
+内部エネルギーの変化に対する力学的なエネルギー以外の外界とのやりとりの量として熱を上のように定義する。
+\section{エントロピー}
+Carnotの定理より、断熱準静的操作で繋がった状態について$(T, X_0) \rightarrow (T^\prime, X_0^\prime),$
+\begin{align}
+    \frac{Q_{max}(T^\prime,X_0^\prime \rightarrow X_1^\prime)}{T^\prime} =
+    \frac{Q_{max}(T,X_0 \rightarrow X_1)}{T}\\
+    \frac{F_(T^\prime,X_0^\prime) - F_(T^\prime,X_0^\prime) - U_(T^\prime,X_1^\prime) - U_(T^\prime,X_1^\prime)}{T^\prime}  =
+    \frac{F_(T,X_0) - F_(T,X_0) - U_(T,X_1) - U_(T,X_1)}{T}\\
+\end{align}
+ここで
+\begin{equation}
+    S(T, X) = U(T, X) - F(T, X) 
+\end{equation}
+と定義して、
+\begin{equation}
+    S(T^\prime, X^\prime_1) - S(T^\prime, X^\prime_0) = S(T, X_1) - S(T, X_0)
+\end{equation}
+エントロピーの差が断熱準静過程で不変であることがわかった。普通はエントロピーは断熱静的過程で不変であるように定義される。
+\end{document}
+

@@ -1,0 +1,42 @@
+\documentclass{jsarticle}
+\usepackage{amssymb,amsmath}
+\usepackage{newtxtt}
+\usepackage[utf8]{inputenc}
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\begin{document}
+\section{compton}
+コンプトン散乱について。
+\subsection{四元運動量}
+四元運動量を以下のように定義する。
+\begin{equation}
+    p = m\vec{U}= (E/c, p_x, p_y, p_z)
+\end{equation}
+\begin{align}
+    |p|^2 &= \frac{E^2}{c^2} - |\vec{p}|^2\\
+    |p|^2 &= m^2 |\vec{U}|^2 = m^2c^2\\
+    \frac{E^2}{c^2} &= m^2c^2 + |\vec{p}|^2\\
+    \frac{E}{c} &= mc \sqrt{1 + \frac{|\vec{p}|}{m^2c^2}}\\
+    E &= mc^2 + \frac{|\vec{p}|^2}{2m}\\  
+\end{align}
+ここで、$\vec{U}$はMCRFであるので、瞬間的共動慣性系ではその成分は$(c, 0, 0, 0)$であることをつかった。\\
+余談だが、MCRFから我々が見ている系への変換は、粒子が速度ｖで動いていたとしたら-vのローレンツ変換を行えば良い。
+\subsection{compton}
+コンプトン散乱の四元運動量保存則から、
+\begin{align}
+    (E/c, \vec{p}) + (mc, 0) &= (E^\prime, p^\prime) + (E^e, p_e^\prime)\\
+    (E/c, \vec{p}) -(E^\prime/c, p^\prime) +  (mc, 0) &= (E^e, p_e^\prime)\\
+    \frac{EE^\prime}{c^2} - |\vec{p}||\vec{p\prime}|cos\theta + mE - mE^\prime + m^2c^2 &= m^2c^2\\
+    E^\prime (m + \frac{E(1 - cos\theta)}{c^2}) &= mE\\
+    E^\prime &= \frac{E}{1 + \frac{E(1 - cos\theta)}{mc^2}}\\
+    \lambda^\prime &= \lambda + hc(\frac{1-cos\theta}{mc^2})\\
+    \lambda^\prime &= \lambda + \frac{h}{mc}(1-cos\theta)
+\end{align}
+$\frac{h}{mc}$はコンプトン波長と呼ばれる。
+\subsection{反跳電子のエネルギー}
+コンプトン散乱によって電子が得たエネルギーは、ガンマ線が失ったエネルギーに等しい。またそのエネルギーは電子の運動エネルギーに等しいので、電子の運動エネルギー$T$:
+\begin{align}
+    T &= E - E^{\prime}\\
+    &= \frac{\frac{E(1 - cos\theta)}{mc^2}}{1 + \frac{E(1 - cos\theta)}{mc^2}}\\
+    &= \frac{E(1 - cos\theta)}{mc^2 + E(1 - cos\theta)}
+\end{align}
+\end{document}

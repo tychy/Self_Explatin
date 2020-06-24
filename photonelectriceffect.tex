@@ -1,0 +1,33 @@
+\documentclass{jsarticle}
+\usepackage{amssymb,amsmath}
+\usepackage{newtxtt}
+\usepackage[utf8]{inputenc}
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\begin{document}
+\section{光電効果}
+光電効果とは、
+\begin{equation}
+    \gamma + e = e + \gamma^{*}
+\end{equation}
+散乱確率は$Z^5$程度、\\
+最内核ではヴァーチャルガンマが大きいので光電効果が起こりやすい。自由電子にはバーチャルガンマがないのでこの反応は怒らない。光子のエネルギーが上がると、ヴァーチャルガンマが足りなくてコンプトン散乱などの散乱反応に変わっていく。\\
+もしヴァーチャルガンマがないならばどうなるか。
+\subsection{エネルギー保存と運動量保存}
+\begin{align}
+    \frac{1}{2} m v^2 = hf\\
+    mv = \frac{hf}{c}
+\end{align}
+とくと、
+\begin{equation}
+    v = 2c
+\end{equation}
+
+\subsection{特殊相対論}
+４元運動量の保存を考えると
+\begin{align}
+    (E/c, p) + (mc^2, 0) = (E^e /c, p^\prime)\\
+    (E^2/c^2 - p \cdot p) + m^2 c^4 + 2 Emc = (E^e)^2 / c^2 - p^{\prime 2}\\
+    0 + m^2 c^4 + 2Emc = m^2 c^4 \\
+    2Emc = 0
+\end{align}
+\end{document}
