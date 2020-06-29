@@ -2,6 +2,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{newtxtt}
 \usepackage[utf8]{inputenc}
+\usepackage{braket}
 \newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
 \newcommand{\dder}[2][]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
 \newcommand{\ppder}[2][]{\frac{\partial^2#1}{{\partial#2}^2}}
@@ -17,5 +18,49 @@
 \begin{document}
 \maketitle
 \section{平行移動}
+微小平行移動を考える。演算子$J(dx)$が変換を行うとする。
+\beq
+J(dx)\ket{x} = \ket{x + dx}
+\eeq
+任意の状態ケットに対して、
+\beq
+    J(dx) \ket{\alpha} = \int \ket{x+dx} \braket{x|\alpha} = \int \ket{x} \braket{x-dx|\alpha}
+\eeq
+この演算子に、規格化条件、和則、逆変換の存在、dxの0極限で恒等変換を要求する。
+これは、
+\beq
+    J(dx) = 1 - i K \cdot dx
+\eeq
+と於けば満たされる。以下でその確認をする。Kをエルミート演算子であるとする。
+また、$K$の次元は長さの逆数であるから波数の次元。
+\begin{align}
+    J^\dagger J &= (1 + i K^\dagger \cdot dx)(1 - i K \cdot dx)\\
+                &= 1 + i (K^\dagger - K) \cdot dx + O(dx^2)\\
+                &\sim 1
+\end{align}
+dxの二次の精度で規格化されていることがわかった。明らかに逆変換が存在する。dxの0極限での振る舞いも明らか。
+\beq
+J(dx + dx^\prime) = 1 - i K \cdot (dx + dx^\prime) = J(dx) J(dx^\prime)
+\eeq
+最後の等式もdxの二次の精度で成立。
+\begin{align}
+    \hat{x} J(dx) \ket{x} &= \hat{x}\ket{x+dx} = x+dx\ket{x+dx}\\
+    J(dx) \hat{x} \ket{x} &= x\ket{x+dx}
+\end{align}
+引いて、
+\beq
+    [\hat{x}, J(dx)] \ket{x} = dx\ket{x}
+\eeq
+$J$に具体的な式を入れて計算すれば、
+\beq
+[\hat{x}, \hat{K}] = i
+\eeq
+ドブロイ仮説を持ち込んで、
+\begin{align}
+    \hat{p} = \frac{\hat{K}}{\hbar}\\
+    [\hat{x}, \hat{p}] = i\hbar
+\end{align}
+\section{参考文献}
+JJサクライ量子力学
 \end{document}
 
