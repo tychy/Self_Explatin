@@ -16,7 +16,10 @@
 \newcommand{\hr}{\hat{r}}
 \newcommand{\hp}{\hat{p}}
 \newcommand{\hj}{\hat{j}}
-\newcommand{\hjt}{\hat{j}^2}
+\newcommand{\hjm}{\hat{j}^{-}}
+\newcommand{\hjp}{\hat{j}^{+}}
+\newcommand{\hbj}{\hat{\bm{j}}}
+\newcommand{\hbjt}{\hat{\bm{j^2}}}
 \newcommand{\hcj}{\hat{J}}
 \newcommand{\hcp}{\hat{P}}
 \newcommand{\rh}{\frac{1}{i\hbar}}
@@ -68,12 +71,40 @@ $\hcj ,\hcp$が満たすべき関係式は
 [P^a,P^b] = 0
 \end{align}
 \section{角運動量の固有状態}
+以下ではbold体の肩についている数字はべきを表す。それ以外は要素。
 角運動量演算子を因子化して、
 \beq
-    \hcj = \hbar \hj
+    \hcj = \hbar \hbj
 \eeq
 \beq
 [\hj^a,\hj^b] = \sum \epsilon_{abc}\hj^c\\
+\eeq
+$\hbj$はエルミートである。$\hbj$の成分は交換しないので、全てを同時に対角化することはできない。
+$\hj^3$について対角化する。
+まず、
+\begin{align}
+    \hj^{\pm} = \hj^1 \pm i \hj^2
+\end{align}
+のように、$\hj^{1,2}$を書き換える。
+すると、
+\beq
+[\hbjt,\hj^3] = 0
+\eeq
+から、同時対角化できることがわかる。
+$\hj^{\pm},\hj^3$の交換関係を計算する。
+\begin{align}
+    [\hj^3, \hj^{+}] &= \hj^{+}\\
+[\hj^3, \hj^{-}] &= -\hj^{-}\\
+[\hj^{+}, \hj^{-}] &= 3\hj^{3}
+\end{align}
+また、
+\beq
+\hbjt = \half (\hjp\hjm + \hjm\hjp) + (\hj^3)^2 =  \hjm\hjp + (\hj^3)^2 + \hj^3
+\eeq
+がわかる。
+ここから、同時対角化する基底を使って$\hj^3$の固有値を$j$とおく。
+\beq
+    (\hbj)^2 \ket{\psi} = j(j+1)\ket{\psi}
 \eeq
 \section{スピン}
 \end{document}
