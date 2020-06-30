@@ -3,6 +3,7 @@
 \usepackage{newtxtt}
 \usepackage[utf8]{inputenc}
 \usepackage{braket}
+\usepackage{bm}
 \newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
 \newcommand{\dder}[2][]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
 \newcommand{\half}{\frac{1}{2}}
@@ -14,12 +15,17 @@
 %量子力学用
 \newcommand{\hr}{\hat{r}}
 \newcommand{\hp}{\hat{p}}
+\newcommand{\hj}{\hat{j}}
+\newcommand{\hjt}{\hat{j}^2}
+\newcommand{\hcj}{\hat{J}}
+\newcommand{\hcp}{\hat{P}}
+\newcommand{\rh}{\frac{1}{i\hbar}}
 \date{\today}
 \author{山田龍}
 \title{Spin}
 \begin{document}
 \maketitle
-\section{生成子とパリティ変換}
+\section{生成子}
 回転並進変換を考える。
 \beq
     r_i \rightarrow M r_i + a
@@ -34,8 +40,41 @@
     U^\dagger \hp U &= Mp\\
 \end{align}
 となる$U$を導入すれば、ユニタリー変換された状態ベクトル$U\Ket{\psi}$について期待値は古典の場合と同じように変換される。
-
+ここで、具体的にユニタリー変換を構成する。
+無限小回転を
+\beq
+M(\theta) = \bm{x} + \bm{x}  \times \theta
+\eeq
+ユニタリー演算子を以下のように書けば、
+\beq
+U(M, \epsilon) = 1 + \rh \theta \cdot \hat{J} + \rh \epsilon \cdot \hat{P}
+\eeq
+$\hcj ,\hcp$が満たすべき関係式は
+\begin{align}
+    \rh [\hr ,\theta \cdot \hat{J}] = \theta \times \bm{r}\\
+    \rh [\hp ,\theta \cdot \hat{J}] = \theta \times \bm{p}\\
+\rh [\hr ,\epsilon \cdot \hcp] = \epsilon\\
+\rh [\hp ,\epsilon \cdot \hcp] = 0\\
+\end{align}
+実際には系を記述する変数は更にスピン自由度がある。ここでは系が$\hr ,\hp$で全てかかれるとして、
+\begin{align}
+    \hcp &= \sum \hp\\
+    \hcj &= \sum \hr \times \hp
+\end{align}
+最後に$\hcj ,\hcp$の交換関係について、
+\begin{align}
+    [J^a,J^b] = ih \sum \epsilon_{abc}J^c\\
+[J^a,P^b] = ih \sum \epsilon_{abc}P^c\\
+[P^a,P^b] = 0
+\end{align}
+\section{角運動量の固有状態}
+角運動量演算子を因子化して、
+\beq
+    \hcj = \hbar \hj
+\eeq
+\beq
+[\hj^a,\hj^b] = \sum \epsilon_{abc}\hj^c\\
+\eeq
 \section{スピン}
-ask
 \end{document}
 
