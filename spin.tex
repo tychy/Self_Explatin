@@ -23,6 +23,8 @@
 \newcommand{\hcj}{\hat{J}}
 \newcommand{\hcp}{\hat{P}}
 \newcommand{\rh}{\frac{1}{i\hbar}}
+\newcommand{\cjm}{\sqrt{j(j+1) - m(m-1)}}
+
 \date{\today}
 \author{山田龍}
 \title{Spin}
@@ -103,11 +105,48 @@ $\hj^{\pm},\hj^3$の交換関係を計算する。
 \eeq
 がわかる。
 ここから、同時対角化する基底を使って$\hj^3$の固有値を$j$とおく。
+固有状態のうち最も$\hj^3$の固有値が大きい固有状態を使えば、
 \beq
     (\hbj)^2 \ket{\psi} = j(j+1)\ket{\psi}
 \eeq
-
+$\hbjt$が全ての成分と可換であるから、$\hjm$が$\hj^3$の固有値のみを１つ下げることがわかる。
+\beq
+\hbjt = \half (\hjp\hjm + \hjm\hjp) + (\hj^3)^2
+\eeq
+を見ると第一項がノルムの形になるので常に０以上であるから、$\hj^3$の固有値にも下限が生じる。
+その下限の固有状態を
+\beq
+    \ket{j, j-k+1}
+\eeq
+と書けば
+\beq
+    \hjm\ket{j, j-k+1} = 0
+\eeq
+となる。$k$を求める。
+$\hbjt$を$\hjp\hjm$の形にして基底状態のケットにかけて
+\beq
+    j(j+1) = (j-k)(j-k+1)
+\eeq
+よって
+\beq
+    k = 2j + 1
+\eeq
+が得られる。つまり、$\hj^3$の固有値は$j,...-j$の$2j+1$個の値を取る。
+$j$が整数であれば奇数個、半整数ならば偶数個の値を取ることがわかる。
+シュテルンゲルラッハの実験に関連する。
+次に$\hj^{\pm}$がケットにかかったときの係数を考える。
+\beq
+\hjm \ket{j,m} = c_m \ket{j,m}
+\eeq
+と考えてノルムを取れば求まる。
+\beq
+\braket{j,m|\hjp\hjm|j,m} = \braket{j,m|\hbjt - \hj^3 (\hj^3 - 1)|j,m} = |c_m|^2
+\eeq
+\beq
+    c_m = \cjm
+\eeq
 \section{スピン}
+
 \section{角運動量合成}
 \section{電子のスピン合成}
 \end{document}
